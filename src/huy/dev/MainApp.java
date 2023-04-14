@@ -11,15 +11,69 @@ public class MainApp {
 		input(shapes);
 		print(shapes);
 		
+		System.out.print("Hinh co tron dien tich lon nhat la: ");
+		findCircle(shapes);
+		
+		System.out.print("Hinh co chu nhat dien tich lon nhat la: ");
+		findRectangle(shapes);
+		
+		System.out.print("Hinh co tam giac dien tich lon nhat la: ");
+		findTriangle(shapes);
+		
 		//đoạn ni là do có 2 cách để tìm hình có diện tích lớn nhất
 		//cách 1
 		System.out.print("Hinh co dien tich lon nhat la: ");
 		find(shapes);
-		
+				
 		//cách 2
 		sort(shapes);
 		System.out.print("Hinh co dien tich lon nhat la: ");
 		System.out.println(shapes[0]);
+	}
+
+	private static void findTriangle(Shape[] shapes) {
+		Shape[] shape = new Shape[1];
+		double max = 0;
+		for (Shape s : shapes) {
+			//kiem tra s co phai kieu Triangle ko
+			if(s instanceof Triangle == true) {
+				if(max < s.dientich()) {
+					max = s.dientich();
+					shape[0] = s;
+				}
+			}
+		}
+		System.out.println(shape[0]);
+	}
+
+	private static void findRectangle(Shape[] shapes) {
+		Shape[] shape = new Shape[1];
+		double max = 0;
+		for (Shape s : shapes) {
+			//kiem tra s co phai kieu Rectangle ko
+			if(s instanceof Rectangle == true) {
+				if(max < s.dientich()) {
+					max = s.dientich();
+					shape[0] = s;
+				}
+			}
+		}
+		System.out.println(shape[0]);
+	}
+
+	private static void findCircle(Shape[] shapes) {
+		Shape[] shape = new Shape[1];
+		double max = 0;
+		for (Shape s : shapes) {
+			//kiem tra s co phai kieu Circle ko
+			if(s instanceof Circle == true) {
+				if(max < s.dientich()) {
+					max = s.dientich();
+					shape[0] = s;
+				}
+			}
+		}
+		System.out.println(shape[0]);
 	}
 
 	private static void sort(Shape[] shapes) {
